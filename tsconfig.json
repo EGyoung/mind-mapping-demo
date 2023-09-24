@@ -31,7 +31,7 @@
     }
   },
   // 包含编译目录
-  "include": ["src/*"],
+  "include": ["src/*", "src/components/Node"],
   // 排除编译目录
   "exclude": ["node_modules", "dist"]
 }

@@ -1,10 +1,14 @@
-import React from 'react'
+
 import { createRoot } from 'react-dom/client'
+import { Node } from './components/node'
+import { MindHoc } from './components/mindHoc'
 const Test = () => {
     return (
-        <div>
-            test
-        </div>
+        <>
+            <MindHoc>
+                <Node />
+            </MindHoc>
+        </>
     )
 }
 
