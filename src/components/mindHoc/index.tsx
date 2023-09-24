@@ -5,10 +5,14 @@ const MindHoc = (props: PropsWithChildren<{}>) => {
     const downPosition = useRef({ top: 0, left: 0 })
     const handleMouseMove = (e: MouseEvent) => {
         if (isMouseDown.current) {
-            setCurrentPosition({
-                top: e.clientY - downPosition.current.top,
-                left: e.clientX - downPosition.current.left
-            })
+            const newTop = e.clientY - downPosition.current.top
+            const newLeft = e.clientX - downPosition.current.left
+            if (newTop !== currentPosition.top || newLeft !== currentPosition.left) {
+                setCurrentPosition({
+                    top: newTop,
+                    left: newLeft
+                })
+            }
         }
     }
     useEffect(() => {
@@ -40,7 +44,6 @@ const MindHoc = (props: PropsWithChildren<{}>) => {
             onMouseUp={handleMouseUp}
         >
             {props.children}
-
         </div>
     )
 }
